@@ -36,15 +36,31 @@ function clickSquare(sqr, i){
   }
 }
 
+function sqrhover(sqr){
+  sqr.classList.add("hover");
+}
+function unsqrhover(sqr){
+  sqr.classList.remove("hover");
+}
+
 function play(){
   const sqrs = getSquares();
 
   sqrs.forEach(function(sqr, i){
     sqr.classList.add("square");
-  sqr.addEventListener("click", function(){
-    clickSquare(sqr, i);});
-  })
+
+    sqr.addEventListener("click", function(){
+    clickSquare(sqr, i);})
+
+  sqr.addEventListener("mouseover", function(){
+    sqrhover(sqr);})
+
+  sqr.addEventListener("mouseleave", function(){
+    unsqrhover(sqr);})
+  }
+  )
 }
+
 
 document.addEventListener("DOMContentLoaded", play);
 
